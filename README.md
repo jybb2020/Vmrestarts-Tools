@@ -28,3 +28,51 @@ Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $true
 
 5.Need to categories the vm and grouped into seperate txt files as App,DB SQL,Infra servers  and supplied into the  Tool.
 6.The Tool can be run from multiple devices with same  vcenter operations as able to cordinate few more Users are engaged in Activity to reduce the Operational Time.
+
+
+Prerequisites & Usage Guidelines
+===========================================
+
+
+VM Name Accuracy
+
+VM names provided in the .txt file must exactly match the VM names in the vCenter console.
+It is strongly recommended to copy VM names directly from vCenter to avoid naming mismatches.
+
+Credential Handling
+
+The tool uses a single set of vCenter credentials for login, and credentials are not masked during execution.
+Please ensure credential confidentiality, especially when executing the tool during meetings or screen-sharing sessions.
+
+Connectivity & Environment Requirements
+
+Any valid vCenter login URL can be supplied.
+Ensure proper VMware connectivity from the execution system.
+Required VMware PowerShell cmdlets (PowerCLI) must be installed and properly configured.
+
+Execution Methodology
+
+The tool processes VMs line by line and requires manual confirmation (Enter key) for each operation.
+This design is intentional to prevent accidental bulk power on/off of all VMs.
+If an error occurs during execution, it is immediately visible, allowing it to be noted and troubleshooted before proceeding further.
+
+
+VM Categorization & Input Structure
+
+VM Grouping
+
+VMs must be categorized and maintained in separate .txt files based on server role, such as:
+
+Application Servers
+Database / SQL Servers
+Infrastructure Servers
+
+Each group-specific .txt file can be independently supplied to the tool, enabling controlled and phased execution.
+
+
+Multi-User & Parallel Execution
+
+Distributed Execution Model
+
+The tool can be executed from multiple systems using the same vCenter environment.
+This allows multiple users to coordinate and work in parallel on different VM groups, thereby reducing overall operational time while maintaining execution control.
