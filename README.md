@@ -25,3 +25,6 @@ Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $true
 4.The Tools have designed to intiate the command as by line by line,as it be require press enter key in each run.
 
 *This is set as it is ensure to avoid the  massive power on off all vms supplied in txt  and can control over the power on activity if any error came ,it be directly noted down and later trouble shoot.
+
+5.Need to categories the vm and grouped into seperate txt files as App,DB SQL,Infra servers  and supplied into the  Tool.
+6.The Tool can be run from multiple devices with same  vcenter operations as able to cordinate few more Users are engaged in Activity to reduce the Operational Time.
